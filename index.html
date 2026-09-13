@@ -7,63 +7,392 @@
     <title>Keizoku DevOps</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #111827;
-            color: white;
             font-family: Arial, sans-serif;
+            background: #0f1115;
+            color: #f5f5f5;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .container {
+            width: min(1100px, 90%);
+            margin: 0 auto;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 17, 21, 0.95);
+            border-bottom: 1px solid #232833;
+        }
+
+        .nav-inner {
+            min-height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #b6bcc8;
+            transition: 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
+        .hero-content {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8f98a8;
+            margin-bottom: 16px;
+        }
+
         h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 1;
+            margin: 0 0 24px;
         }
 
-        p {
-            color: #9ca3af;
+        .hero-description {
+            font-size: 20px;
+            color: #b6bcc8;
+            max-width: 760px;
+            margin: 0 auto 32px;
+        }
+
+        .focus-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            gap: 10px;
+            margin: 0 auto;
+        }
+
+        .focus-item {
+            padding: 8px 14px;
+            border: 1px solid #303746;
+            border-radius: 999px;
+            color: #c5cad3;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid #202530;
+        }
+
+        #about,
+        #projects {
+            text-align: center;
+        }
+
+        .section-label {
+            color: #8f98a8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin: 0 0 24px;
+        }
+
+        .section-copy {
+            max-width: 720px;
+            color: #b6bcc8;
             font-size: 18px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        button {
-            margin-top: 20px;
-            padding: 12px 24px;
-            border: none;
+        .about-action {
+            margin-top: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
             border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
+            border: 1px solid #343b49;
+            transition: 0.2s ease;
         }
 
-        button:hover {
-            transform: scale(1.05);
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: #5b6575;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            border: 1px solid #2b313d;
+            border-radius: 12px;
+            padding: 26px;
+            background: #15181f;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.2s ease;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #4b5565;
+        }
+
+        .project-card h3 {
+            margin: 0 0 12px;
+            font-size: 22px;
+        }
+
+        .project-card p {
+            color: #9ea6b3;
+            margin: 0;
+        }
+
+        .project-status {
+            margin-top: 24px;
+            font-size: 13px;
+            color: #737c8b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #202530;
+            color: #747d8b;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: center;
+                padding: 18px 0;
+                gap: 10px;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            .hero-description {
+                font-size: 18px;
+            }
+
+            .focus-list {
+                flex-wrap: wrap;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 34px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Keizoku DevOps</h1>
+    <nav>
+        <div class="container nav-inner">
+            <div class="brand">Keizoku DevOps</div>
 
-        <p>Day 1 — September 1, 2026</p>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+            </div>
+        </div>
+    </nav>
 
-        <button onclick="startBuilding()">
-            Start Building
-        </button>
-    </div>
+    <main>
 
-    <script>
-        function startBuilding() {
-            alert("Keizoku DevOps has begun.");
-        }
-    </script>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        Build • Test • Improve • Continue
+                    </div>
+
+                    <h1>Keizoku DevOps</h1>
+
+                    <p class="hero-description">
+                        A development studio focused on practical software,
+                        automation, digital products and AI-assisted engineering
+                        with a strong foundation in quality and reliability.
+                    </p>
+
+                    <div class="focus-list">
+                        <span class="focus-item">Software Development</span>
+                        <span class="focus-item">Web Development</span>
+                        <span class="focus-item">Automation</span>
+                        <span class="focus-item">AI-Assisted Engineering</span>
+                        <span class="focus-item">QA & Validation</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+
+                <div class="section-label">About</div>
+
+                <h2>Built around continuous improvement.</h2>
+
+                <p class="section-copy">
+                    Keizoku DevOps is an independent development studio focused
+                    on building useful digital products through an iterative,
+                    quality-driven approach. The goal is simple: use modern
+                    development tools and AI to move quickly without sacrificing
+                    testing, reliability or maintainability.
+                </p>
+
+                <p class="section-copy">
+                    The name reflects the philosophy behind the work — continue,
+                    improve and keep moving forward.
+                </p>
+
+                <div class="about-action">
+                    <a href="developer-profile.html" class="button">
+                        View Developer Profile
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+
+                <div class="section-label">Projects</div>
+
+                <h2>Current work.</h2>
+
+                <p class="section-copy">
+                    A growing collection of development, product and portfolio
+                    projects built under the Keizoku DevOps umbrella.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div>
+                            <h3>Keizoku DevOps</h3>
+
+                            <p>
+                                The development studio itself — including its
+                                web presence, internal tooling, workflows and
+                                future software products.
+                            </p>
+                        </div>
+
+                        <div class="project-status">
+                            Active
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div>
+                            <h3>Horizonte</h3>
+
+                            <p>
+                                An upcoming project currently in development
+                                under the Keizoku DevOps portfolio.
+                            </p>
+                        </div>
+
+                        <div class="project-status">
+                            In Development
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div>
+                            <h3>Resume / Portfolio</h3>
+
+                            <p>
+                                A dedicated professional portfolio showcasing
+                                technical experience, development work and
+                                completed projects.
+                            </p>
+                        </div>
+
+                        <div class="project-status">
+                            Coming Soon
+                        </div>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Keizoku DevOps
+        </div>
+    </footer>
 
 </body>
 </html>
