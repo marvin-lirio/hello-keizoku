@@ -121,39 +121,20 @@
         }
 
         .profile-actions {
-            display: flex;
-            gap: 14px;
             margin-top: 34px;
         }
 
-        .primary-button,
         .secondary-button {
             display: inline-block;
             padding: 12px 20px;
+            border: 1px solid #343b49;
             border-radius: 8px;
+            color: #f5f5f5;
             transition: 0.2s ease;
         }
 
-        .primary-button {
-            border: 1px solid #343b49;
-            color: #f5f5f5;
-        }
-
-        .secondary-button {
-            border: 1px solid #343b49;
-            color: #f5f5f5;
-        }
-
-        .primary-button:hover,
         .secondary-button:hover {
             transform: translateY(-2px);
-        }
-
-        .primary-button:hover {
-            border-color: #697384;
-        }
-
-        .secondary-button:hover {
             border-color: #697384;
         }
 
@@ -186,7 +167,7 @@
             font-size: 17px;
         }
 
-        /* GENERAL */
+        /* GENERAL SECTIONS */
 
         section {
             padding: 100px 0;
@@ -198,7 +179,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 13px;
-            margin-bottom: 12px;
+            margin-bottom: 18px;
             text-align: center;
         }
 
@@ -220,116 +201,33 @@
             margin-top: 18px;
         }
 
-        /* CAPABILITIES */
+        /* WHAT I BUILD */
 
-        .capabilities-grid {
+        .build-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 45px;
         }
 
-        .capability-card {
+        .build-card {
             background: #15181f;
             border: 1px solid #2b313d;
             border-radius: 12px;
             padding: 28px;
         }
 
-        .capability-card h3 {
+        .build-card h3 {
             margin-top: 0;
             font-size: 21px;
         }
 
-        .capability-card p {
+        .build-card p {
             margin-bottom: 0;
             color: #9ea6b3;
         }
 
-        /* TOOLS */
-
-        .tools-heading {
-            margin-top: 80px;
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 45px;
-        }
-
-        .tool-card {
-            background: #15181f;
-            border: 1px solid #2b313d;
-            border-radius: 12px;
-            padding: 26px;
-        }
-
-        .tool-card h3 {
-            margin-top: 0;
-        }
-
-        .tool-card p {
-            margin-bottom: 0;
-            color: #9ea6b3;
-        }
-
-        /* PROJECTS */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 45px;
-        }
-
-        .project-card {
-            background: #15181f;
-            border: 1px solid #2b313d;
-            border-radius: 12px;
-            padding: 28px;
-            transition: 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            border-color: #4b5565;
-        }
-
-        .project-card h3 {
-            margin-top: 0;
-            font-size: 23px;
-        }
-
-        .project-card p {
-            color: #9ea6b3;
-        }
-
-        .project-status {
-            display: inline-block;
-            margin-top: 14px;
-            color: #7f8897;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .button {
-            display: inline-block;
-            margin-top: 12px;
-            padding: 12px 20px;
-            border: 1px solid #343b49;
-            border-radius: 8px;
-            transition: 0.2s ease;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            border-color: #5b6575;
-        }
-
-        /* APPROACH */
+        /* HOW I BUILD */
 
         .approach-grid {
             display: grid;
@@ -358,6 +256,32 @@
 
         .approach-card p {
             margin: 0;
+            color: #9ea6b3;
+        }
+
+        /* WHAT I BUILD WITH */
+
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 45px;
+        }
+
+        .stack-card {
+            background: #15181f;
+            border: 1px solid #2b313d;
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .stack-card h3 {
+            margin-top: 0;
+            font-size: 21px;
+        }
+
+        .stack-card p {
+            margin-bottom: 0;
             color: #9ea6b3;
         }
 
@@ -407,6 +331,7 @@
         /* RESPONSIVE */
 
         @media (max-width: 900px) {
+
             .profile-hero {
                 min-height: auto;
                 padding: 80px 0;
@@ -423,10 +348,6 @@
                 letter-spacing: -2px;
             }
 
-            .profile-actions {
-                flex-wrap: wrap;
-            }
-
             .nav-inner {
                 flex-direction: column;
                 gap: 12px;
@@ -437,10 +358,9 @@
                 justify-content: center;
             }
 
-            .capabilities-grid,
-            .tools-grid,
-            .projects-grid,
+            .build-grid,
             .approach-grid,
+            .stack-grid,
             .contact-grid {
                 grid-template-columns: 1fr;
             }
@@ -455,6 +375,7 @@
 <body>
 
     <!-- NAVIGATION -->
+
     <nav>
 
         <div class="container nav-inner">
@@ -464,11 +385,27 @@
             </div>
 
             <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#capabilities">Capabilities</a>
-                <a href="#projects">Projects</a>
-                <a href="#approach">Approach</a>
-                <a href="#contact">Contact</a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#build">
+                    What I Build
+                </a>
+
+                <a href="#approach">
+                    How I Build
+                </a>
+
+                <a href="#stack">
+                    What I Build With
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
             </div>
 
         </div>
@@ -478,6 +415,7 @@
     <main>
 
         <!-- HERO -->
+
         <section class="profile-hero">
 
             <div class="container profile-hero-grid">
@@ -505,12 +443,11 @@
 
                     <div class="profile-actions">
 
-                        <a href="#projects" class="primary-button">
-                            View Projects
-                        </a>
-
-                        <a href="index.html" class="secondary-button">
-                            Keizoku DevOps
+                        <a
+                            href="index.html"
+                            class="secondary-button"
+                        >
+                            Back to Keizoku DevOps
                         </a>
 
                     </div>
@@ -574,6 +511,7 @@
         </section>
 
         <!-- ABOUT -->
+
         <section id="about">
 
             <div class="container">
@@ -583,7 +521,7 @@
                 </div>
 
                 <h2>
-                    Building with a QA mindset.
+                    The developer behind Keizoku.
                 </h2>
 
                 <p class="section-copy">
@@ -595,163 +533,112 @@
 
                 <p class="section-copy">
                     Keizoku DevOps is where I apply that mindset to software
-                    development, web projects, automation and experimental
-                    digital products using modern development tools and
-                    AI-assisted engineering.
+                    development, websites, automation and experimental digital
+                    products using modern development tools and AI-assisted
+                    engineering.
                 </p>
 
             </div>
 
         </section>
 
-        <!-- CAPABILITIES -->
-        <section id="capabilities">
+        <!-- WHAT I BUILD -->
+
+        <section id="build">
 
             <div class="container">
 
                 <div class="section-label">
-                    Capabilities
+                    What I Build
                 </div>
 
-                <h2>
-                    What I build.
-                </h2>
+                <p class="section-copy">
+                    The focus is on creating useful digital products that solve
+                    problems, simplify processes or turn an idea into something
+                    people can actually use.
+                </p>
 
-                <div class="capabilities-grid">
+                <div class="build-grid">
 
-                    <article class="capability-card">
+                    <article class="build-card">
 
                         <h3>
-                            Web Development
+                            Websites
                         </h3>
 
                         <p>
-                            Responsive websites and web experiences built around
-                            clear requirements, usability and maintainable
-                            implementation.
+                            Responsive websites and web experiences built
+                            around usability, clear requirements and simple,
+                            maintainable design.
                         </p>
 
                     </article>
 
-                    <article class="capability-card">
+                    <article class="build-card">
 
                         <h3>
-                            Software Development
+                            Software
                         </h3>
 
                         <p>
                             Practical applications and software projects built
-                            iteratively from initial requirements through
-                            testing and deployment.
+                            iteratively from an initial concept through testing
+                            and deployment.
                         </p>
 
                     </article>
 
-                    <article class="capability-card">
+                    <article class="build-card">
 
                         <h3>
                             Automation
                         </h3>
 
                         <p>
-                            Tools and workflows designed to eliminate repetitive
-                            work, improve consistency and simplify everyday
-                            processes.
+                            Tools and workflows that reduce repetitive work,
+                            improve consistency and make everyday processes
+                            easier.
                         </p>
 
                     </article>
 
-                    <article class="capability-card">
-
-                        <h3>
-                            AI-Assisted Engineering
-                        </h3>
-
-                        <p>
-                            Using AI as a development accelerator while retaining
-                            human ownership of requirements, architecture,
-                            validation and final delivery.
-                        </p>
-
-                    </article>
-
-                    <article class="capability-card">
-
-                        <h3>
-                            Testing & Validation
-                        </h3>
-
-                        <p>
-                            Applying functional testing, regression thinking,
-                            edge-case analysis and structured validation
-                            throughout development.
-                        </p>
-
-                    </article>
-
-                    <article class="capability-card">
+                    <article class="build-card">
 
                         <h3>
                             Digital Products
                         </h3>
 
                         <p>
-                            Exploring ideas that can become useful tools,
-                            experiences and independent software products.
+                            Exploring ideas that can become standalone tools,
+                            services, applications and independent products.
                         </p>
 
                     </article>
 
-                </div>
-
-                <!-- TOOLS -->
-                <div class="tools-heading">
-
-                    <div class="section-label">
-                        Tools & Environment
-                    </div>
-
-                    <h2>
-                        Current development stack.
-                    </h2>
-
-                </div>
-
-                <div class="tools-grid">
-
-                    <article class="tool-card">
+                    <article class="build-card">
 
                         <h3>
-                            Development
+                            AI-Assisted Solutions
                         </h3>
 
                         <p>
-                            HTML • CSS • JavaScript • Node.js • PowerShell
+                            Applying AI where it improves development speed,
+                            workflow efficiency or creates genuinely useful
+                            functionality.
                         </p>
 
                     </article>
 
-                    <article class="tool-card">
+                    <article class="build-card">
 
                         <h3>
-                            Workflow
+                            Experimental Builds
                         </h3>
 
                         <p>
-                            Git • GitHub • VS Code • GitHub Pages
-                        </p>
-
-                    </article>
-
-                    <article class="tool-card">
-
-                        <h3>
-                            Engineering
-                        </h3>
-
-                        <p>
-                            AI-Assisted Development • Requirements Analysis •
-                            Testing • Debugging • Iterative Delivery
+                            Small projects and prototypes used to explore new
+                            technologies, concepts and potential future
+                            products.
                         </p>
 
                     </article>
@@ -762,84 +649,20 @@
 
         </section>
 
-        <!-- PROJECTS -->
-        <section id="projects">
+        <!-- HOW I BUILD -->
 
-            <div class="container">
-
-                <div class="section-label">
-                    Projects
-                </div>
-
-                <h2>
-                    Current work.
-                </h2>
-
-                <p class="section-copy">
-                    Projects being developed through Keizoku DevOps will grow
-                    alongside the studio and the technologies behind them.
-                </p>
-
-                <div class="projects-grid">
-
-                    <article class="project-card">
-
-                        <h3>
-                            Keizoku DevOps
-                        </h3>
-
-                        <p>
-                            The development studio itself, including its web
-                            presence, development workflow, internal tooling
-                            and future software products.
-                        </p>
-
-                        <a href="index.html" class="button">
-                            View Keizoku DevOps
-                        </a>
-
-                    </article>
-
-                    <article class="project-card">
-
-                        <h3>
-                            Horizonte
-                        </h3>
-
-                        <p>
-                            An upcoming website enhancement project being
-                            developed under the Keizoku DevOps portfolio.
-                        </p>
-
-                        <span class="project-status">
-                            In Development
-                        </span>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- APPROACH -->
         <section id="approach">
 
             <div class="container">
 
                 <div class="section-label">
-                    Approach
+                    How I Build
                 </div>
 
-                <h2>
-                    How I build.
-                </h2>
-
                 <p class="section-copy">
-                    The development process is built around a simple cycle:
-                    understand what needs to be built, implement it, validate
-                    the result and continuously improve it.
+                    Development follows a simple iterative cycle built around
+                    clear requirements, rapid implementation, structured
+                    validation and continuous improvement.
                 </p>
 
                 <div class="approach-grid">
@@ -855,8 +678,8 @@
                         </h3>
 
                         <p>
-                            Establish the requirements, purpose and expected
-                            behavior before implementation begins.
+                            Establish the problem, requirements, purpose and
+                            expected behavior before implementation begins.
                         </p>
 
                     </article>
@@ -872,8 +695,8 @@
                         </h3>
 
                         <p>
-                            Develop rapidly using modern tools and AI-assisted
-                            engineering where it adds value.
+                            Develop rapidly using modern tooling and
+                            AI-assisted engineering where it adds value.
                         </p>
 
                     </article>
@@ -889,9 +712,9 @@
                         </h3>
 
                         <p>
-                            Test expected behavior, edge cases and usability
-                            instead of assuming that working code is finished
-                            code.
+                            Test expected behavior, usability and edge cases
+                            instead of assuming that working code means
+                            finished software.
                         </p>
 
                     </article>
@@ -907,8 +730,108 @@
                         </h3>
 
                         <p>
-                            Iterate based on what was learned and continue
-                            improving the product over time.
+                            Refine the product based on testing, feedback and
+                            what was learned during development.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- WHAT I BUILD WITH -->
+
+        <section id="stack">
+
+            <div class="container">
+
+                <div class="section-label">
+                    What I Build With
+                </div>
+
+                <p class="section-copy">
+                    The stack will continue to evolve as Keizoku grows, but
+                    these are the technologies and workflows currently behind
+                    the builds.
+                </p>
+
+                <div class="stack-grid">
+
+                    <article class="stack-card">
+
+                        <h3>
+                            Development
+                        </h3>
+
+                        <p>
+                            HTML • CSS • JavaScript • Node.js • PowerShell
+                        </p>
+
+                    </article>
+
+                    <article class="stack-card">
+
+                        <h3>
+                            Development Environment
+                        </h3>
+
+                        <p>
+                            VS Code • Windows • Command Line • Local Development
+                        </p>
+
+                    </article>
+
+                    <article class="stack-card">
+
+                        <h3>
+                            Version Control & Deployment
+                        </h3>
+
+                        <p>
+                            Git • GitHub • GitHub Pages
+                        </p>
+
+                    </article>
+
+                    <article class="stack-card">
+
+                        <h3>
+                            AI-Assisted Engineering
+                        </h3>
+
+                        <p>
+                            AI-supported implementation, debugging, code review,
+                            requirements refinement and rapid prototyping.
+                        </p>
+
+                    </article>
+
+                    <article class="stack-card">
+
+                        <h3>
+                            Quality
+                        </h3>
+
+                        <p>
+                            Requirements Analysis • Functional Testing •
+                            Regression Thinking • Edge-Case Validation •
+                            Debugging
+                        </p>
+
+                    </article>
+
+                    <article class="stack-card">
+
+                        <h3>
+                            Delivery
+                        </h3>
+
+                        <p>
+                            Iterative Development • Git Workflow • Deployment •
+                            Validation • Continuous Improvement
                         </p>
 
                     </article>
@@ -920,6 +843,7 @@
         </section>
 
         <!-- CONTACT -->
+
         <section id="contact">
 
             <div class="container">
@@ -940,7 +864,10 @@
                             Keizoku DevOps
                         </div>
 
-                        <a href="index.html" class="contact-value">
+                        <a
+                            href="index.html"
+                            class="contact-value"
+                        >
                             Main Site
                         </a>
 
